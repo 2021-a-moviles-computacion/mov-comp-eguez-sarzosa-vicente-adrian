@@ -103,7 +103,44 @@ fun main() {
         .forEach { valorActual: Int ->
             println("Valor actual: ${valorActual}")
         }
+    arregloDinamico
+        .forEach {
+            // it:Int -> El valor o los valores que van a llegar a esta funcion
+            //           Si solamente se recibe 1 parametro, este se va a llamar "it"
+            println("Valor actual: ${it}")
+        }
     println(respuestaForEach)
+    arregloDinamico
+        .forEachIndexed { indice: Int, valorActual: Int ->
+            println("Valor ${valorActual} Indice: ${indice}")
+        }
+
+    // MAP -> Muta el arreglo (Cambia el arreglo)
+    // 1) Enviemos el nuevo valor de la iteracion
+    // 2) Nos devuelve es un NUEVO ARREGLO con los valores modificados
+
+    val respuestaMap: List<Double> = arregloDinamico
+        .map { valorActual: Int ->
+            return@map valorActual.toDouble() + 100.00
+        }
+    val respuestaMapDos = arregloDinamico.map { it + 15 }
+//        .map { valorActual: Int ->
+//            return@map valorActual + 15
+//        }
+    println(respuestaMap)
+    println(respuestaMapDos)
+
+    // Filter -> FILTRAR EL ARREGLO
+    // 1) Devolver una expresion (TRUE o FALSE)
+    // 2) Nuevo arreglo filtrado
+    val respuestaFilter: List<Int> = arregloDinamico
+        .filter { valorActual:Int ->
+            val mayoresACinco: Boolean = valorActual > 5 // Expresion Condicion
+            return@filter mayoresACinco
+        }
+    val respuestaFilterDos = arregloDinamico.filter { it <= 5 }
+    println(respuestaFilter)
+    println(respuestaFilterDos)
 
 
 } // FIN bloque MAIN
