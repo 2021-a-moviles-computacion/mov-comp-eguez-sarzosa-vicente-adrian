@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -12,6 +13,7 @@ import android.widget.ListView
 
 class BListView : AppCompatActivity() {
 
+    var posicionItemSeleccionado = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blist_view)
@@ -41,26 +43,24 @@ class BListView : AppCompatActivity() {
 //
 //                return@setOnItemLongClickListener true
 //            }
-         registerForContextMenu(listViewEjemplo)
+        registerForContextMenu(listViewEjemplo)
 
     }
-
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
         menuInfo: ContextMenu.ContextMenuInfo?
     ) {
         super.onCreateContextMenu(menu, v, menuInfo)
-
-
         val inflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
 
-//        val info = menuInfo as AdapterView.AdapterContextMenuInfo
-//        val id = info.position
-        // posicionItemSeleccionado = id
+        val info = menuInfo as AdapterView.AdapterContextMenuInfo
+        val id = info.position
+        posicionItemSeleccionado = id
+        Log.i("list-view", "List view ${posicionItemSeleccionado}")
+        Log.i("list-view", "Entrenador ${BBaseDatosMemoria.arregloBEntrenador[id]}")
     }
-
 
 
     fun anadirItemsAlListView(
@@ -71,4 +71,27 @@ class BListView : AppCompatActivity() {
         arreglo.add(valor)
         adaptador.notifyDataSetChanged() // actualiza la interfaz
     }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when(item?.itemId){
+            // Editar
+                R.id.mi_editar -> {
+                    Log.i("list-view","Editar ${BBaseDatosMemoria.arregloBEntrenador[
+                            posicionItemSeleccionado
+                    ]}")
+                    return true
+                }
+            // Eliminar
+            R.id.mi_eliminar -> {
+                Log.i("list-view","Eliminar ${BBaseDatosMemoria.arregloBEntrenador[
+                        posicionItemSeleccionado
+                ]}")
+                return true
+            }
+
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
+
 }
