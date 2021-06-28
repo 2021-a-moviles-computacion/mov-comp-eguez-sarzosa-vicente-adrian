@@ -11,11 +11,11 @@ import android.widget.Button
 import android.widget.ListView
 
 class BListView : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blist_view)
-
-        val arregloNumeros = arrayListOf<Int>(1, 2, 3)
+        val arregloNumeros = BBaseDatosMemoria.arregloBEntrenador
 
         val adaptador = ArrayAdapter(
             this, // Contexto
@@ -28,7 +28,7 @@ class BListView : AppCompatActivity() {
         val botonAnadirNumero = findViewById<Button>(R.id.btn_anadir_numero)
         botonAnadirNumero.setOnClickListener {
             anadirItemsAlListView(
-                1,
+                BEntrenador("Prueba", "d@d.com"),
                 arregloNumeros,
                 adaptador
             )
@@ -64,9 +64,9 @@ class BListView : AppCompatActivity() {
 
 
     fun anadirItemsAlListView(
-        valor: Int,
-        arreglo: ArrayList<Int>,
-        adaptador: ArrayAdapter<Int>
+        valor: BEntrenador,
+        arreglo: ArrayList<BEntrenador>,
+        adaptador: ArrayAdapter<BEntrenador>
     ) {
         arreglo.add(valor)
         adaptador.notifyDataSetChanged() // actualiza la interfaz
