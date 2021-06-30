@@ -24,7 +24,7 @@ class BBaseDatosMemoria {
                 )
             arregloBEntrenador
                 .add(
-                    BEntrenador("Carolina", "c@c.com")
+                    BEntrenador("Vicente", "b@b.com")
                 )
         }
     }
