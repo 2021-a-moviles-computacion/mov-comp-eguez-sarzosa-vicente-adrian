@@ -1,5 +1,6 @@
 package com.example.moviles_computacion_2021_b
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 
 class BListView : AppCompatActivity() {
 
@@ -36,16 +38,52 @@ class BListView : AppCompatActivity() {
             )
         }
 
-//        listViewEjemplo
-//            .setOnItemLongClickListener { adapterView, view, posicion, id ->
-//
-//                Log.i("list-view", "Dio click ${posicion}")
-//
-//                return@setOnItemLongClickListener true
-//            }
-        registerForContextMenu(listViewEjemplo)
+        listViewEjemplo
+            .setOnItemLongClickListener { adapterView, view, posicion, id ->
+
+                Log.i("list-view", "Dio click ${posicion}")
+
+                val builder = AlertDialog.Builder(this)
+
+                builder.setTitle("Titulo")
+//                builder.setMessage("Mensaje")
+
+                val seleccionUsuario = booleanArrayOf(
+                    true,
+                    false,
+                    false
+                )
+
+                val opciones = resources.getStringArray(R.array.string_array_opciones_dialogo)
+
+                builder.setMultiChoiceItems(
+                    opciones,
+                    seleccionUsuario,
+                    { dialog, which, isChecked ->
+                        Log.i("list-view", "${which} ${isChecked}")
+                    }
+                )
+
+
+                builder.setPositiveButton(
+                    "Si",
+                    DialogInterface.OnClickListener { dialog, which ->
+                        Log.i("list-view", "Si")
+                    }
+                )
+                builder.setNegativeButton(
+                    "No",
+                    null
+                )
+                val dialogo = builder.create()
+                dialogo.show()
+
+                return@setOnItemLongClickListener true
+            }
+//        registerForContextMenu(listViewEjemplo)
 
     }
+
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -73,19 +111,27 @@ class BListView : AppCompatActivity() {
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        return when(item?.itemId){
+        return when (item?.itemId) {
             // Editar
-                R.id.mi_editar -> {
-                    Log.i("list-view","Editar ${BBaseDatosMemoria.arregloBEntrenador[
-                            posicionItemSeleccionado
-                    ]}")
-                    return true
-                }
+            R.id.mi_editar -> {
+                Log.i(
+                    "list-view", "Editar ${
+                        BBaseDatosMemoria.arregloBEntrenador[
+                                posicionItemSeleccionado
+                        ]
+                    }"
+                )
+                return true
+            }
             // Eliminar
             R.id.mi_eliminar -> {
-                Log.i("list-view","Eliminar ${BBaseDatosMemoria.arregloBEntrenador[
-                        posicionItemSeleccionado
-                ]}")
+                Log.i(
+                    "list-view", "Eliminar ${
+                        BBaseDatosMemoria.arregloBEntrenador[
+                                posicionItemSeleccionado
+                        ]
+                    }"
+                )
                 return true
             }
 
