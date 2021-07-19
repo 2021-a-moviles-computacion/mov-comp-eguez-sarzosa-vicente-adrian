@@ -18,6 +18,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        EBaseDeDatos.TablaUsuario = ESqliteHelperUsuario(this)
+
+//        if(EBaseDeDatos.TablaUsuario != null){
+//            EBaseDeDatos.TablaUsuario.consultarUsuarioPorId()
+//            EBaseDeDatos.TablaUsuario.crearUsuarioFormulario()
+//            EBaseDeDatos.TablaUsuario.eliminarUsuarioFormulario()
+//            EBaseDeDatos.TablaUsuario.actualizarUsuarioFormulario()
+//        }
+
         val botonIrCicloVida = findViewById<Button>(
             R.id.btn_ir_ciclo_vida
         )
@@ -43,6 +52,14 @@ class MainActivity : AppCompatActivity() {
                     ContactsContract.CommonDataKinds.Phone.CONTENT_URI
                 )
                 startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
+            }
+
+        val botonAbrirRecyclerView = findViewById<Button>(
+            R.id.btn_ir_recycler_view
+        )
+        botonAbrirRecyclerView
+            .setOnClickListener {
+                abrirActividadConParametros(GRecyclerView::class.java)
             }
     }
 
@@ -105,9 +122,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             CODIGO_RESPUESTA_INTENT_IMPLICITO -> {
-                if(resultCode == RESULT_OK){
-                    if(data != null){
-                        if(data.data != null){
+                if (resultCode == RESULT_OK) {
+                    if (data != null) {
+                        if (data.data != null) {
                             val uri: Uri = data.data!!
                             val cursor = contentResolver.query(
                                 uri,
