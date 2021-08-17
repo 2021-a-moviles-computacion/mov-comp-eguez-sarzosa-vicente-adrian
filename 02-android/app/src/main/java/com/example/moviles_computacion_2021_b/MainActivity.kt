@@ -1,6 +1,5 @@
 package com.example.moviles_computacion_2021_b
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -60,6 +59,14 @@ class MainActivity : AppCompatActivity() {
         botonAbrirRecyclerView
             .setOnClickListener {
                 abrirActividadConParametros(GRecyclerView::class.java)
+            }
+
+        val botonAbrirHttp = findViewById<Button>(
+            R.id.btn_ir_http
+        )
+        botonAbrirHttp
+            .setOnClickListener {
+                abrirActividadConParametros(HHttpActivity::class.java)
             }
     }
 

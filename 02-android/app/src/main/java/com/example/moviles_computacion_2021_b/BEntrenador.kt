@@ -2,17 +2,20 @@ package com.example.moviles_computacion_2021_b
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.util.*
 
 class BEntrenador(
     val nombre: String?,
     val descripcion: String?,
     val liga: DLiga? = null,
+//    val numeros: Unit = null,
 ) :Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readParcelable(DLiga::class.java.classLoader)
+        parcel.readParcelable(DLiga::class.java.classLoader),
+//        parcel.readIntArray()
     ) {
     }
 
@@ -24,6 +27,7 @@ class BEntrenador(
         parcel?.writeString(nombre)
         parcel?.writeString(descripcion)
         parcel?.writeParcelable(liga, flag)
+//        parcel?.writeIntArray(numeros)
     }
 
     override fun toString(): String {

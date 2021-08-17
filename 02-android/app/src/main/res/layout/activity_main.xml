@@ -74,4 +74,15 @@
         app:layout_constraintStart_toStartOf="@+id/btn_ir_intent"
         app:layout_constraintTop_toBottomOf="@+id/btn_ir_intent" />
 
+    <Button
+        android:id="@+id/btn_ir_http"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:text="HTTP"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ir_intent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/btn_ir_intent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ir_intent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

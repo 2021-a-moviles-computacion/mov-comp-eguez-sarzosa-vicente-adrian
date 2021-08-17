@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "104627640248",
+    "project_id": "movcom-2021a-egusar",
+    "storage_bucket": "movcom-2021a-egusar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104627640248:android:c6e44ec11e71917e27e14d",
+        "android_client_info": {
+          "package_name": "com.example.firebaseuno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104627640248-ljj2d72au1e0d789pup0622ogjr71kot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSaCh526r9uqN4di7TxvtrWWd_QGh3_GY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104627640248-ljj2d72au1e0d789pup0622ogjr71kot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
