@@ -40,15 +40,15 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btn_anadir_tipo_comida2"
+        android:id="@+id/btn_completar_pedido"
         android:layout_width="340dp"
         android:layout_height="43dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="88dp"
         android:text="Completar pedido"
-        app:layout_constraintEnd_toEndOf="@+id/_dynamic"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="@+id/_dynamic"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+        app:layout_constraintEnd_toEndOf="@+id/lv_lista_productos"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="@+id/lv_lista_productos"
+        app:layout_constraintTop_toBottomOf="@+id/lv_lista_productos" />
 
     <Spinner
         android:id="@+id/sp_producto"
@@ -61,6 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_restaurantes" />
 
     <ListView
+        android:id="@+id/lv_lista_productos"
         android:layout_width="361dp"
         android:layout_height="144dp"
         android:layout_marginTop="28dp"
@@ -80,12 +81,24 @@
         app:layout_constraintStart_toStartOf="@+id/sp_producto"
         app:layout_constraintTop_toBottomOf="@+id/sp_producto" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="332dp"
+        android:text="Total"
+        app:layout_constraintEnd_toEndOf="@+id/sp_producto"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="@+id/sp_producto"
+        app:layout_constraintTop_toBottomOf="@+id/sp_producto" />
+
     <EditText
         android:id="@+id/et_cantidad_producto"
         android:layout_width="254dp"
         android:layout_height="46dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Ingrese cantidad"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/sp_producto"
         app:layout_constraintHorizontal_bias="0.0"
