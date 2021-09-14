@@ -65,4 +65,15 @@
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="@+id/btn_producto"
         app:layout_constraintTop_toBottomOf="@+id/btn_producto" />
+
+    <Button
+        android:id="@+id/btn_ir_mapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="Mapa"
+        app:layout_constraintEnd_toEndOf="@+id/btn_restaurante"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/btn_restaurante"
+        app:layout_constraintTop_toBottomOf="@+id/btn_restaurante" />
 </androidx.constraintlayout.widget.ConstraintLayout>
